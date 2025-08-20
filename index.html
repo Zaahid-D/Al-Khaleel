@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Al Khaleel Dawah Centre — Project Showcase</title>
+  <meta name="description" content="Fundraising and project showcase for Al Khaleel Dawah Centre: phases, vision, progress, and a message from the founder."/>
+  
+  
+  <style>
+    /* =====================
+       COLOR THEME (from logo)
+       ===================== */
+    :root{
+      --brown:#3c3024;   /* primary text / footer */
+      --blue:#558ec3;    /* accents / buttons */
+      --olive:#7b8350;   /* progress / highlights */
+      --sage:#656c4d;    /* subtle backgrounds */
+      --ink:#111111;     /* deep contrast */
+      --paper:#f5f5f5;   /* light background */
+      --white:#ffffff;
+    }
+
+    /* ===============
+       BASE RESET
+       =============== */
+    *,*::before,*::after{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji","Segoe UI Emoji";line-height:1.6;color:var(--brown);background:var(--paper)}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+
+    /* =====================
+       GLOBAL LAYOUT HELPERS
+       ===================== */
+    .container{width:min(1100px, 92vw);margin-inline:auto}
+    section{position:relative;padding:72px 0}
+    h1,h2,h3{line-height:1.15;margin:0 0 12px}
+    h1{font-size:clamp(2rem, 4vw + 1rem, 3.5rem);letter-spacing:0.4px}
+    h2{font-size:clamp(1.4rem, 1.2vw + 1rem, 2rem)}
+    p{margin:0 0 12px}
+    .eyebrow{text-transform:uppercase;letter-spacing:0.14em;font-weight:700;font-size:0.78rem;color:color-mix(in srgb, var(--brown) 70%, transparent)}
+
+    /* =====================
+       FLOWING BACKGROUND LAYER
+       (organic radial gradients + PNG pattern)
+       ===================== */
+    body::before{
+      content:"";position:fixed;inset:0;z-index:-2;
+      background:
+        radial-gradient(1200px 600px at 70% 0%, color-mix(in srgb, var(--blue) 18%, transparent) 0%, transparent 60%),
+        radial-gradient(900px 500px at 0% 20%, color-mix(in srgb, var(--olive) 16%, transparent) 0%, transparent 60%),
+        radial-gradient(800px 400px at 100% 80%, color-mix(in srgb, var(--sage) 22%, transparent) 0%, transparent 60%),
+        var(--paper);
+      filter:saturate(1.05);
+    }
+    /* PNG pattern overlay */
+    body::after{
+      content:"";position:fixed;inset:0;z-index:-1;opacity:.07;pointer-events:none;
+      background-image: url('bgpattern.png');
+      background-repeat: repeat;
+      mask-image:radial-gradient(80% 80% at 50% 20%, #000 35%, transparent 100%);
+    }
+
+    /* =========================
+   FORCE LIGHT MODE / IGNORE DARK MODE
+   ========================= */
+
+/* Tell browser to always use light color scheme */
+:root {
+  color-scheme: light;
+}
+
+
+
+/* Ensure sections, containers, cards, and other main elements keep original colors */
+.hero, .about, .container, .card, .visual {
+  background-color: unset; /* fallback to your designed colors in CSS */
+  color: inherit;          /* keep original text color */
+}
+
+/* Prevent images/SVGs from being affected by browser dark mode filters */
+img, svg {
+  filter: none !important;
+}
+
+
+    /* =====================
+       STICKY NAV (simple)
+       ===================== */
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb, var(--white) 55%, transparent);border-bottom:1px solid color-mix(in srgb, var(--brown) 10%, transparent)}
+    .nav .inner{display:flex;align-items:center;justify-content:space-between;padding:1px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800}
+    .brand img{height:70px;width:auto}
+    .dropdown{position:relative;display:inline-block}
+    .dropdown-content{display:none;position:absolute;right:0;background:var(--white);min-width:200px;box-shadow:0 8px 16px rgba(0,0,0,0.1);z-index:1;border-radius:8px;overflow:hidden}
+    .dropdown-content a{display:block;padding:12px 16px;text-decoration:none;color:var(--brown);border-bottom:1px solid color-mix(in srgb, var(--brown) 10%, transparent)}
+    .dropdown-content a:last-child{border-bottom:none}
+    .dropdown-content a:hover{background:color-mix(in srgb, var(--blue) 10%, transparent)}
+    .dropdown:hover .dropdown-content{display:block}
+    .nav a.button{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--blue);color:var(--white);text-decoration:none;font-weight:700;box-shadow:0 6px 18px color-mix(in srgb, var(--blue) 35%, transparent)}
+
+   
+    /* =====================
+       HERO
+       ===================== */
+.hero {
+  min-height: 78vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: relative;
+}
+.hero .bismillah {
+  font-size: clamp(1.2rem, 2vw + 0.5rem, 1.8rem);
+  font-family: 'Traditional Arabic', 'Scheherazade New', serif;
+  margin-bottom: 1rem;
+  color: var(--brown);
+}
+.hero .subtitle {
+  font-size: clamp(1.2rem, 2vw + 0.5rem, 1.8rem);
+  color: var(--olive);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.hero .title {
+  background: linear-gradient(135deg, var(--blue), var(--olive));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+}
+.hero-logos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+.hero-logo {
+  height: 100px;
+  width: auto;
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.hero-logo:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+    /* =====================
+       ABOUT — 3 column with center visual
+       ===================== */
+.about {
+  overflow: hidden;
+}
+.about .grid {
+  display: grid;
+  grid-template-columns: 1fr min(320px, 32vw) 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.about .card {
+  background: color-mix(in srgb, var(--white) 85%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brown) 10%, transparent);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--brown) 10%, transparent);
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+.about .card.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.about .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 35px color-mix(in srgb, var(--brown) 15%, transparent),
+    0 0 0 2px color-mix(in srgb, var(--blue) 20%, transparent);
+}
+.about .visual {
+  aspect-ratio: 1/1;
+  border-radius: 24px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sage) 35%, var(--white)), var(--paper));
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+.about .visual.visible {
+  transform: scale(1);
+  opacity: 1;
+}
+.about .visual:hover {
+  transform: scale(1.02);
+}
+.about .visual .ring {
+  position: absolute;
+  inset: 12px;
+  border-radius: 24px;
+  border: 1px dashed color-mix(in srgb, var(--blue) 40%, transparent);
+  transition: all 0.4s ease;
+}
+.about .visual:hover .ring {
+  border-color: color-mix(in srgb, var(--blue) 70%, transparent);
+  transform: scale(1.05);
+}
+.about .visual .caption {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.86rem;
+  opacity: 0.8;
+  z-index: 2;
+  background: color-mix(in srgb, var(--white) 80%, transparent);
+  padding: 6px 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.about .visual:hover .caption {
+  background: color-mix(in srgb, var(--blue) 15%, transparent);
+  color: var(--blue);
+  opacity: 1;
+}
+
+/* Building image with animation */
+.building-image {
+  width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  animation: float 6s ease-in-out infinite;
+  transform-origin: center;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+.about .visual:hover .building-image {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+}
+
+/* Glow effect */
+.building-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 25px color-mix(in srgb, var(--blue) 30%, transparent);
+  opacity: 0;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+.about .visual:hover .building-image::after {
+  opacity: 0.6;
+  box-shadow: 0 0 35px color-mix(in srgb, var(--blue) 50%, transparent);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.3; }
+}
+
+/* Card content animations */
+.about .card h2 {
+  color: var(--blue);
+  transition: color 0.3s ease;
+}
+.about .card:hover h2 {
+  color: var(--olive);
+}
+.about .card p {
+  transition: transform 0.3s ease;
+}
+.about .card:hover p {
+  transform: translateX(5px);
+}
+
+/* Remove the old 3D spinner styles */
+.model, .cube-face {
+  display: none;
+}
+
+/* Staggered animation for cards */
+.about .card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.about .card:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.about .visual {
+  transition-delay: 0.3s;
+}
+
+/* =====================
+       PHASES TIMELINE
+       ===================== */
+.phases {
+  overflow: hidden;
+}
+.phases .rail {
+  position: relative;
+  margin-top: 48px;
+  padding-top: 24px;
+}
+.phases .rail::before {
+  content: "";
+  position: absolute;
+  left: 35px; /* Adjusted to align with dots */
+  top: 0;
+  height: 100%; /* Full height continuous line */
+  width: 3px; /* Slightly thinner line */
+  border-radius: 3px;
+  background: linear-gradient(to bottom, 
+    var(--blue), 
+    var(--olive),
+    var(--sage));
+  box-shadow: 0 0 10px color-mix(in srgb, var(--blue) 20%, transparent);
+  transition: height 1.8s ease-in-out;
+  z-index: 1; /* Line behind dots */
+}
+.phase {
+  position: relative;
+  margin-left: 70px;
+  margin-bottom: 32px;
+  padding: 24px;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--white) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brown) 8%, transparent);
+  box-shadow: 
+    0 10px 30px color-mix(in srgb, var(--brown) 8%, transparent),
+    0 0 0 0px color-mix(in srgb, var(--blue) 0%, transparent);
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+.phase.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+.phase:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 35px color-mix(in srgb, var(--brown) 12%, transparent),
+    0 0 0 4px color-mix(in srgb, var(--blue) 20%, transparent);
+}
+
+.phase .dot {
+  position: absolute;
+  left: -46px; /* Adjusted for smaller dot size */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px; /* Smaller dots */
+  height: 24px; /* Smaller dots */
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--blue); /* Thinner border */
+  box-shadow: 
+    0 0 0 6px color-mix(in srgb, var(--blue) 25%, transparent),
+    0 0 15px color-mix(in srgb, var(--blue) 40%, transparent);
+  transition: all 0.4s ease;
+  z-index: 3; /* Higher z-index to ensure dots appear on top */
+}
+.phase:hover .dot {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 
+    0 0 0 6px color-mix(in srgb, var(--blue) 25%, transparent),
+    0 0 20px color-mix(in srgb, var(--blue) 60%, transparent);
+}
+.phase h3 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  color: var(--blue);
+  position: relative;
+  padding-left: 16px;
+}
+.phase h3::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--olive);
+}
+.phase p {
+  margin: 0;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--brown) 80%, transparent);
+}
+
+/* Phase-specific colors */
+.phase:nth-child(1) .dot { border-color: #558ec3; }
+.phase:nth-child(2) .dot { border-color: #5d9b7b; }
+.phase:nth-child(3) .dot { border-color: #7b8350; }
+.phase:nth-child(4) .dot { border-color: #a67c52; }
+.phase:nth-child(5) .dot { border-color: #9c6b8d; }
+
+.phase:nth-child(1):hover { box-shadow: 0 15px 35px rgba(85, 142, 195, 0.15), 0 0 0 4px rgba(85, 142, 195, 0.2); }
+.phase:nth-child(2):hover { box-shadow: 0 15px 35px rgba(93, 155, 123, 0.15), 0 0 0 4px rgba(93, 155, 123, 0.2); }
+.phase:nth-child(3):hover { box-shadow: 0 15px 35px rgba(123, 131, 80, 0.15), 0 0 0 4px rgba(123, 131, 80, 0.2); }
+.phase:nth-child(4):hover { box-shadow: 0 15px 35px rgba(166, 124, 82, 0.15), 0 0 0 4px rgba(166, 124, 82, 0.2); }
+.phase:nth-child(5):hover { box-shadow: 0 15px 35px rgba(156, 107, 141, 0.15), 0 0 0 4px rgba(156, 107, 141, 0.2); }
+
+/* Animation for the progress line */
+@keyframes fillLine {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .phase {
+    margin-left: 50px;
+    padding: 18px;
+  }
+  .phase .dot {
+    left: -38px; /* Adjusted for mobile */
+    width: 20px; /* Even smaller on mobile */
+    height: 20px; /* Even smaller on mobile */
+  }
+  .phases .rail::before {
+    left: 33px; /* Adjusted for mobile to align with smaller dots */
+    width: 2px; /* Thinner line on mobile */
+  }
+}
+
+  /* =====================
+       FUNDRAISING PROGRESS
+       ===================== */
+.funds .board {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.progress-circle-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+}
+.progress-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    color-mix(in srgb, var(--brown) 8%, transparent) 0%,
+    color-mix(in srgb, var(--brown) 8%, transparent) 100%
+  );
+  transition: background 1.5s cubic-bezier(.22,.61,.36,1);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--blue) 20%, transparent);
+  position: relative;
+}
+.progress-circle::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: var(--white);
+  border-radius: 50%;
+  z-index: 1;
+}
+.progress-circle-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+.progress-percentage {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin: 0;
+  line-height: 1;
+  transition: all 0.5s ease;
+}
+.progress-label {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--brown) 70%, transparent);
+  margin: 5px 0 0;
+}
+.metrics {
+  display: grid;
+  gap: 12px;
+  margin-top: 30px;
+}
+.metric {
+  display: flex;
+  justify-content: space-between;
+  background: color-mix(in srgb, var(--white) 90%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brown) 10%, transparent);
+  border-radius: 16px;
+  padding: 16px 20px;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
+.metric.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.metric:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--brown) 10%, transparent);
+  border-color: color-mix(in srgb, var(--blue) 30%, transparent);
+}
+.metric span {
+  color: color-mix(in srgb, var(--brown) 70%, transparent);
+}
+.metric strong {
+  color: var(--blue);
+  font-size: 1.1rem;
+}
+.funds-content {
+  padding-left: 20px;
+}
+.funds-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--brown) 80%, transparent);
+}
+
+/* Animation for progress circle */
+@keyframes fillProgress {
+  from {
+    background: conic-gradient(
+      color-mix(in srgb, var(--brown) 8%, transparent) 0%,
+      color-mix(in srgb, var(--brown) 8%, transparent) 100%
+    );
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 980px) {
+  .funds .board {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  .progress-circle-container {
+    width: 180px;
+    height: 180px;
+  }
+  .progress-percentage {
+    font-size: 2rem;
+  }
+  .funds-content {
+    padding-left: 0;
+  }
+}
+/* =====================
+       FOUNDER
+       ===================== */
+.founder {
+  position: relative;
+  overflow: hidden;
+}
+.founder::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, 
+    color-mix(in srgb, var(--blue) 15%, transparent) 0%,
+    transparent 100%);
+  z-index: -1;
+  opacity: 0.1;
+}
+.founder .container {
+  position: relative;
+}
+.founder .card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--white) 98%, transparent) 0%,
+    color-mix(in srgb, var(--paper) 100%, transparent) 100%);
+  border: 1px solid color-mix(in srgb, var(--brown) 8%, transparent);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 
+    0 20px 40px color-mix(in srgb, var(--brown) 8%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--blue) 5%, transparent);
+  backdrop-filter: blur(10px);
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+.founder .card.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.founder-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  align-self: center;
+}
+.founder-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+  transition: transform 0.5s ease;
+}
+.founder-image:hover img {
+  transform: scale(1.03);
+}
+.founder-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 3px solid color-mix(in srgb, var(--blue) 20%, transparent);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.founder-image:hover::after {
+  opacity: 1;
+}
+.founder-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.founder-quote {
+  position: relative;
+  padding-left: 30px;
+  margin: 0 0 24px 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--brown) 85%, transparent);
+}
+
+
+
+
+.founder-signature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid color-mix(in srgb, var(--blue) 15%, transparent);
+}
+.founder-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--blue);
+  margin: 0 0 5px 0;
+}
+.founder-title {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--brown) 60%, transparent);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 980px) {
+  .founder .card {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  .founder-quote {
+    padding-left: 0;
+    padding-top: 30px;
+  }
+  .founder-quote::before {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -5px;
+  }
+  .founder-signature {
+    align-items: center;
+  }
+}
+
+/* Animation for founder section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+  /* =====================
+       FOOTER
+       ===================== */
+footer {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--brown) 95%, black), var(--brown));
+  color: var(--white);
+  padding: 50px 0 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    color-mix(in srgb, var(--blue) 30%, transparent), 
+    transparent);
+}
+
+footer .container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-logo::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--blue);
+  transition: width 0.3s ease;
+}
+
+.footer-logo:hover::after {
+  width: 100%;
+}
+
+.footer-tagline {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.footer-contact span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-contact span:hover {
+  opacity: 1;
+}
+
+.footer-contact i {
+  color: var(--blue);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.footer-credits {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-minor {
+  opacity: 0.7;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+
+.footer-minor:hover {
+  opacity: 1;
+}
+
+.footer-copyright {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  opacity: 0.9;
+}
+
+.footer-decoration {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  width: 300px;
+  height: 300px;
+}
+
+.footer-decoration svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer .container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-credits {
+    text-align: center;
+    order: -1;
+  }
+  
+  .footer-logo::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-contact span {
+    justify-content: center;
+  }
+  
+  .footer-decoration {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Animation for footer */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer .container > * {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+footer .footer-content {
+  animation-delay: 0.1s;
+}
+
+footer .footer-credits {
+  animation-delay: 0.2s;
+}
+    /* =====================
+       RESPONSIVE
+       ===================== */
+    @media (max-width:980px){
+      .about .grid{grid-template-columns:1fr;gap:18px}
+      .funds .board{grid-template-columns:1fr;gap:18px}
+      .phase{margin-left:44px}
+      .phase .dot{left:-34px}
+      .dropdown-content{right:auto;left:0}
+    }
+  </style>
+</head>
+<body>
+  
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container inner">
+      <div class="brand">
+        <!-- Replace with your actual logo PNG -->
+        <img src="1.png" alt="Al Khaleel Dawah Centre Logo">
+      </div>
+      <div class="links">
+        <div class="dropdown">
+          <a class="button" href="#">Dawah Centre</a>
+          <div class="dropdown-content">
+            <a href="#about">About the Dawah Centre</a>
+            <a href="#phases">Project Phases</a>
+            <a href="#funds">Budget & Progress</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-logos">
+      <!-- Replace these with your actual logo PNG files -->
+      <img src="2.png" alt="Company Logo 1" class="hero-logo">
+      <img src="4.png" alt="Company Logo 2" class="hero-logo">
+      <img src="3.png" alt="Company Logo 3" class="hero-logo">
+    </div>
+    <br>
+    <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+    <h1 class="title">Al Khaleel Dawah Centre</h1>
+    <h2 class="title">Building a Future for the Community</h2>
+    
+    
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container">
+    <p class="eyebrow">About the Centre</p>
+    <div class="grid">
+      <article class="card">
+        <h2>Our Mission</h2>
+        <p>Al Khaleel Dawah Centre is dedicated to nurturing faith, learning and community well‑being. The new centre will provide spaces for prayer, education, youth programmes and community support services.</p>
+      </article>
+      <div class="visual" aria-hidden="false" aria-label="Preview of the planned centre">
+        <div class="ring"></div>
+        <!-- Replace with your actual building PNG -->
+        <img src="building.png" alt="Al Khaleel Dawah Centre Building" class="building-image">
+        <div class="caption">Planned Centre Design</div>
+      </div>
+      <article class="card">
+        <h2>Our Vision</h2>
+        <p>To establish a welcoming, sustainable space that inspires unity, learning and service. Programmes will include Qur'an and Arabic classes, youth mentorship, food relief and community outreach.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section id="phases" class="phases">
+  <div class="container">
+    <p class="eyebrow">Project Phases</p>
+    <h2>From Groundwork to Grand Opening</h2>
+    <div class="rail">
+      <div class="phase">
+        <div class="dot"></div>
+        <h3>Phase 1 — Foundation & Site Prep</h3>
+        <p>Land preparation, permits, utilities and foundational work to prepare the site for construction.</p>
+      </div>
+      <div class="phase">
+        <div class="dot"></div>
+        <h3>Phase 2 — Structure & Roofing</h3>
+        <p>Primary structure, roofing and shell to bring the building to life.</p>
+      </div>
+      <div class="phase">
+        <div class="dot"></div>
+        <h3>Phase 3 — Interiors & Services</h3>
+        <p>Prayer hall finishes, classrooms, ablution facilities, electrical, HVAC and accessibility features.</p>
+      </div>
+      <div class="phase">
+        <div class="dot"></div>
+        <h3>Phase 4 — Community Areas & Landscaping</h3>
+        <p>Courtyard, green spaces and multi‑purpose rooms for community programmes and events.</p>
+      </div>
+      <div class="phase">
+        <div class="dot"></div>
+        <h3>Final Vision — Completed Centre</h3>
+        <p>A welcoming, functional and beautiful space serving the community every day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- FUNDS -->
+<section id="funds" class="funds">
+  <div class="container">
+    <p class="eyebrow">Fundraising Progress</p>
+    <h2>Together, we can reach the goal</h2>
+
+    <div class="board">
+      <div>
+        <div class="progress-circle-container">
+          <div class="progress-circle" id="progressCircle">
+            <div class="progress-circle-inner">
+              <div class="progress-percentage" id="progressPercentage">0%</div>
+              <div class="progress-label">Funded</div>
+            </div>
+          </div>
+        </div>
+        <div class="metrics" role="list">
+          <div class="metric" role="listitem">
+            <span>Target Amount</span>
+            <strong id="targetDisplay">R 0</strong>
+          </div>
+          <div class="metric" role="listitem">
+            <span>Raised So Far</span>
+            <strong id="raisedDisplay">R 0</strong>
+          </div>
+          <div class="metric" role="listitem">
+            <span>Remaining</span>
+            <strong id="remainingDisplay">R 0</strong>
+          </div>
+        </div>
+      </div>
+      <div class="funds-content">
+        <p>Every contribution brings us closer to opening the doors. Your support helps fund construction, educational resources and community programmes based at the centre.</p>
+        <p style="margin-top:16px">May your generosity be rewarded abundantly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER MESSAGE -->
+<section id="founder" class="founder">
+  <div class="container">
+    <p class="eyebrow">Message from the Founder</p>
+    <div class="card" id="founderCard">
+      <div class="founder-image">
+        <!-- Replace with your actual founder image -->
+        <img src="founder.jpeg" alt="Founder of Al Khaleel Dawah Centre">
+      </div>
+      <div class="founder-content">
+        <blockquote class="founder-quote">
+          "This centre is not just a building, but a legacy for the generations to come. With your support, we can bring this vision to life."
+        </blockquote>
+        <div class="founder-signature">
+          <p class="founder-name">Shaykh Suliman Gani</p>
+          <p class="founder-title">Founder, Al Khaleel Dawah Centre</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">Al Khaleel Dawah Centre</div>
+      <p class="footer-tagline">Building a future for our community through faith, education, and service.</p>
+      <div class="footer-contact">
+        <span><i>Email:</i> info@alkhaleeldawah.org</span>
+        <span><i>Phone:</i> +27 123 456 789</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+</footer>
+
+  <script>
+    // =====================
+// ABOUT SECTION ANIMATION
+// =====================
+function initAboutAnimation() {
+  const aboutSection = document.querySelector('.about');
+  const cards = document.querySelectorAll('.about .card');
+  const visual = document.querySelector('.about .visual');
+  
+  // Reset elements for animation
+  cards.forEach(card => {
+    card.classList.remove('visible');
+  });
+  visual.classList.remove('visible');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animate cards with staggered delay
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 300);
+        });
+        
+        // Animate visual with slightly longer delay
+        setTimeout(() => {
+          visual.classList.add('visible');
+        }, 600);
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  observer.observe(aboutSection);
+}
+
+// Initialize about animation when page loads
+document.addEventListener('DOMContentLoaded', initAboutAnimation);
+
+   // =====================
+// ANIMATED TIMELINE
+// =====================
+function initTimeline() {
+  const phases = document.querySelectorAll('.phase');
+  const timeline = document.querySelector('.phases .rail');
+  const timelineLine = document.querySelector('.phases .rail::before');
+  
+  // Reset phases for animation
+  phases.forEach(phase => {
+    phase.classList.remove('visible');
+  });
+  
+  // Create observer to animate timeline
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animate the timeline line
+        const rail = document.querySelector('.phases .rail');
+        rail.style.setProperty('--timeline-height', '100%');
+        
+        // Animate each phase with staggered delay
+        phases.forEach((phase, index) => {
+          setTimeout(() => {
+            phase.classList.add('visible');
+            
+            // Animate the connecting lines sequentially
+            if (index < phases.length - 1) {
+              setTimeout(() => {
+                phase.style.setProperty('--line-height', 'calc(100% + 20px)');
+              }, 300);
+            }
+          }, index * 300);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  observer.observe(timeline);
+}
+
+// Initialize timeline when page loads
+initTimeline(); // Add this line to actually call the function
+
+// =====================
+// UTIL: formatted currency (South Africa Rand)
+// =====================
+const formatRand = (n) => new Intl.NumberFormat('en-ZA', {
+  style:'currency',
+  currency:'ZAR',
+  maximumFractionDigits:0
+}).format(n);
+
+// =====================
+// CONFIG: Update these values only
+// =====================
+const TARGET_AMOUNT = 500_000;   // <- set target (ZAR)
+const RAISED_AMOUNT = 325_000;   // <- set raised (ZAR)
+
+// =====================
+// FUNDRAISING CIRCLE
+// =====================
+const progressCircle = document.getElementById('progressCircle');
+const progressPercentage = document.getElementById('progressPercentage');
+const targetDisplay = document.getElementById('targetDisplay');
+const raisedDisplay = document.getElementById('raisedDisplay');
+const remainingDisplay = document.getElementById('remainingDisplay');
+const metrics = document.querySelectorAll('.metric');
+
+function updateProgress(){
+  // Calculate actual percentage
+  const pct = Math.max(0, Math.min(100, (RAISED_AMOUNT / TARGET_AMOUNT) * 100));
+  const roundedPct = Math.round(pct);
+  
+  // Start circle at 0% fill
+  progressCircle.style.background = `conic-gradient(
+    var(--blue) 0%,
+    var(--olive) 0%,
+    color-mix(in srgb, var(--brown) 8%, transparent) 0%
+  )`;
+  
+  // Animate to 65% first
+  animateValue(progressPercentage, progressCircle, 0, 65);
+  
+  // Update metrics text
+  targetDisplay.textContent = formatRand(TARGET_AMOUNT);
+  raisedDisplay.textContent = formatRand(RAISED_AMOUNT);
+  remainingDisplay.textContent = formatRand(Math.max(0, TARGET_AMOUNT - RAISED_AMOUNT));
+}
+
+// =====================
+// Helper: Animate values + circle fill
+// =====================
+function animateValue(element, circle, start, end, speedPerUnit = 30) {
+  let startTimestamp = null;
+  const duration = Math.abs(end - start) * speedPerUnit; // slower per step
+
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    const value = Math.floor(progress * (end - start) + start);
+
+    // Update percentage text
+    element.textContent = value + "%";
+
+    // Update circle fill
+    circle.style.background = `conic-gradient(
+      var(--blue) 0%,
+      var(--olive) ${value}%,
+      color-mix(in srgb, var(--brown) 8%, transparent) ${value}%
+    )`;
+
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+
+// =====================
+// Animate only when visible
+// =====================
+let fundsAnimated = false;
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting && !fundsAnimated){
+      fundsAnimated = true;
+      updateProgress();
+      
+      // Animate metrics with staggered delay
+      metrics.forEach((metric, index) => {
+        setTimeout(() => {
+          metric.classList.add('visible');
+        }, 800 + (index * 200));
+      });
+    }
+  })
+}, {threshold:0.3});
+io.observe(document.querySelector('.funds'));
+
+// =====================
+// Add scroll progress animation
+// =====================
+let progressAnimated = false;
+const progressIO = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting && !progressAnimated){
+      progressAnimated = true;
+      
+      // Calculate actual percentage based on funds
+      const actualPct = Math.max(0, Math.min(100, (RAISED_AMOUNT / TARGET_AMOUNT) * 100));
+      const roundedActualPct = Math.round(actualPct);
+      
+      // Animate from 65% to actual percentage
+      setTimeout(() => {
+        animateValue(progressPercentage, progressCircle, 65, roundedActualPct);
+      }, 500);
+    }
+  })
+}, {threshold:0.5});
+
+progressIO.observe(document.querySelector('.progress-circle-container'));
+
+
+// =====================
+// FOUNDER SECTION ANIMATION
+// =====================
+function initFounderAnimation() {
+  const founderCard = document.getElementById('founderCard');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        founderCard.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  observer.observe(founderCard);
+}
+
+// Initialize founder animation when page loads
+document.addEventListener('DOMContentLoaded', initFounderAnimation);
+
+
+    // =====================
+    // YEAR IN FOOTER
+    // =====================
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
